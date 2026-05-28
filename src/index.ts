@@ -8,6 +8,7 @@ import { filterLast24Hours, deduplicateArticles, sortByDateDesc, getUniqueSource
 import { generateMarkdown } from './markdown.js';
 import { translateArticles } from './translator.js';
 import { summarizeArticles } from './summarizer.js';
+import { sendEmailReport } from './mailer.js';
 
 const __dirname = fileURLToPath(new URL('.', import.meta.url));
 
@@ -62,6 +63,13 @@ async function main() {
     await writeFile(outputPath, markdown, 'utf-8');
 
     console.log(`✓ Report saved to: ${outputPath}\n`);
+
+    // 发送邮件通知
+    const emailSent = await sendEmailReport(outputPath, translated.length, sources.size);
+    if (emailSent) {
+      console.log('✅ Email notification sent!\n');
+    }
+
     console.log('✅ Done!');
   } catch (error) {
     console.error('❌ Error:', error instanceof Error ? error.message : 'Unknown error');

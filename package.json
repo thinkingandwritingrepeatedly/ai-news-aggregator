@@ -11,6 +11,7 @@
     "@vitalets/google-translate-api": "^9.2.1",
     "date-fns": "^3.0.0",
     "google-translate-api-x": "^10.7.3",
+    "nodemailer": "^8.0.9",
     "rss-parser": "^3.13.0"
   },
   "devDependencies": {

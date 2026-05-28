@@ -1,0 +1,23 @@
+{
+  "name": "ai-news-aggregator",
+  "version": "1.0.0",
+  "description": "Daily AI news aggregator CLI tool",
+  "type": "module",
+  "scripts": {
+    "start": "tsx src/index.ts"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.99.0",
+    "@vitalets/google-translate-api": "^9.2.1",
+    "date-fns": "^3.0.0",
+    "google-translate-api-x": "^10.7.3",
+    "rss-parser": "^3.13.0"
+  },
+  "devDependencies": {
+    "tsx": "^4.7.0",
+    "typescript": "^5.3.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
